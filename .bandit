@@ -1,0 +1,30 @@
+[bandit]
+# Niveles de severidad: LOW, MEDIUM, HIGH
+# Por defecto: MEDIUM
+severity: MEDIUM
+
+# Exclusiones de directorios o archivos
+# Puedes usar comodines (*) para patrones de coincidencia
+exclude:
+    - tests/
+    - docs/
+
+# Archivos o directorios adicionales a analizar
+targets:
+    - app/
+    - scripts/
+
+# Listado de plugins adicionales a utilizar
+#plugins:
+#   - bandit.plugins.insecure_ssl_tls
+
+# Niveles de confianza para identificar falsos positivos
+# Por defecto: LOW
+confidence: LOW
+
+# Configuración de salida de informes
+[bandit.report]
+# Salida de informes: stdout, json, xml, yaml
+output_format: stdout
+# Ruta del archivo de informe
+#output_file: bandit_report.json
