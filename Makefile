@@ -65,7 +65,7 @@ pylint:
 	docker run --rm --volume `pwd`:/opt/calc --env PYTHONPATH=/opt/calc -w /opt/calc calculator-app:latest pylint app/ | tee results/pylint_result.txt
 
 bandit:
-	docker run --rm --volume `pwd`:/opt/calc --env PYTHONPATH=/opt/calc -w /opt/calc calculator-app:latest bandit -r app/ -f xml -o results/bandit_result.xml
+    docker run --rm --volume `pwd`:/opt/calc --env PYTHONPATH=/opt/calc -w /opt/calc calculator-app:latest bandit -r app/ -f xml -o results/bandit_result.xml
 
 code-security-analysis:
     docker run --rm --volume `pwd`:/usr/src --network calc-sonar sonarsource/sonar-scanner-cli
