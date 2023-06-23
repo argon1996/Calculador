@@ -64,11 +64,6 @@ start-sonar-scanner:
 pylint:
 	docker run --rm --volume `pwd`:/opt/calc --env PYTHONPATH=/opt/calc -w /opt/calc calculator-app:latest pylint app/ | tee results/pylint_result.txt
 
-bandit:
-        docker run --rm --volume `pwd`:/opt/calc --env PYTHONPATH=/opt/calc -w /opt/calc calculator-app:latest bandit -r app/ -f xml -o results/bandit_result.xml
-
-
-
 deploy-stage:
 	docker stop apiserver || true
 	docker stop calc-web || true
