@@ -70,6 +70,7 @@ sonarqube:
 dependency-check:
 	docker run --rm -v $(pwd):/app owasp/dependency-check --scan /app --project "Calculator App" --out /app/results --format "ALL"
 
+
 deploy-stage:
 	docker stop apiserver || true
 	docker stop calc-web || true
