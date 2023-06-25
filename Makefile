@@ -67,6 +67,9 @@ pylint:
 sonarqube:
 	docker run --rm --volume /vagrant/home/workspace/tesis:/usr/src --network calc-sonar -e SONAR_LOGIN=admin -e SONAR_PASSWORD=sonar sonarsource/sonar-scanner-cli
 
+dependency-check:
+	docker run --rm -v $(pwd):/app owasp/dependency-check --scan /app --project "Calculator App" --out /app/results --format "ALL"
+
 deploy-stage:
 	docker stop apiserver || true
 	docker stop calc-web || true
