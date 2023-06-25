@@ -64,6 +64,9 @@ start-sonar-scanner:
 pylint:
 	docker run --rm --volume `pwd`:/opt/calc --env PYTHONPATH=/opt/calc -w /opt/calc calculator-app:latest pylint app/ | tee results/pylint_result.txt
 
+sonarqube:
+	docker run --rm --volume /vagrant/home/workspace/tesis:/usr/src --network calc-sonar sonarsource/sonar-scanner-cli
+
 deploy-stage:
 	docker stop apiserver || true
 	docker stop calc-web || true
