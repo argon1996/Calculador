@@ -49,6 +49,7 @@ run-web:
 stop-web:
     docker stop calc-web
 
+
 start-sonar-server:
     docker network create calc-sonar || true
     docker run -d --rm --stop-timeout 60 --network calc-sonar --name sonarqube-server -p 9000:9000 --volume `pwd`/sonar/data:/opt/sonarqube/data --volume `pwd`/sonar/logs:/opt/sonarqube/logs sonarqube:8.3.1-community
