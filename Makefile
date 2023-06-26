@@ -70,9 +70,6 @@ sonarqube:
 dependency-check:
 	docker run --rm -v "/home/vagrant/Calculador":/app owasp/dependency-check --scan /app --project "Calculator App" --out /app/results --format "ALL"
 
-dependency-check:
-
-        docker run --rm -v "/home/vagrant/Calculador":/app owasp/dependency-check --scan /app --project "Calculator App" --out /app/results --format "ALL"
 
 
 deploy-stage:
