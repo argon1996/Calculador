@@ -68,6 +68,7 @@ sonarqube:
 	docker run --rm --volume /vagrant/home/workspace/tesis:/usr/src --network calc-sonar -e SONAR_LOGIN=admin -e SONAR_PASSWORD=sonar sonarsource/sonar-scanner-cli
 
 dependency-check:
+
         docker run --rm -v "/home/vagrant/Calculador":/app owasp/dependency-check --scan /app --project "Calculator App" --out /app/results --format "ALL"
 
 
