@@ -70,15 +70,6 @@ sonarqube:
 dependency-check:
         docker run --rm -v "$(pwd)":/app owasp/dependency-check --scan /app --project "Calculator App" --out /app/results --format "ALL"
 
-publish-security-report:
-    docker run --rm -v "$(pwd)":/zap/wrk/:rw owasp/zap2docker-stable zap-baseline.py -t http://localhost:5000 -r report.html
-    mv report.html results/
-    echo "<h1>Informe de Seguridad OWASP ZAP</h1>" > index.html
-    echo "<iframe src='report.html' width='100%' height='800'></iframe>" >> index.html
-    mv index.html results/
-
-
-
 deploy-stage:
 	docker stop apiserver || true
 	docker stop calc-web || true
