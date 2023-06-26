@@ -71,15 +71,8 @@ dependency-check:
         docker run --rm -v "$(pwd)":/app owasp/dependency-check --scan /app --project "Calculator App" --out /app/results --format "ALL"
 
 publish-security-report:
-    # Ejecutar OWASP ZAP para generar el informe de seguridad en formato XML o HTML
     docker run --rm -v "$(pwd)":/zap/wrk/:rw owasp/zap2docker-stable zap-baseline.py -t http://localhost:5000 -r report.html
-
-    # Mover el informe de seguridad a la carpeta de resultados
     mv report.html results/
-
-    # Publicar el informe en la interfaz de Jenkins utilizando el plugin "HTML Publisher Plugin"
-    # Asegúrate de tener instalado el plugin "HTML Publisher Plugin" en tu instancia de Jenkins
-    # Puedes ajustar los detalles según la configuración específica de tu proyecto en Jenkins
     echo "<h1>Informe de Seguridad OWASP ZAP</h1>" > index.html
     echo "<iframe src='report.html' width='100%' height='800'></iframe>" >> index.html
     mv index.html results/
